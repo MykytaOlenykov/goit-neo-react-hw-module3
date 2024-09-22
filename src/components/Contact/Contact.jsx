@@ -11,14 +11,14 @@ export default function Contact({
   return (
     <div className={css.container}>
       <div className={css["info-bar"]}>
-        <p className={css.info}>
+        <div className={css.info}>
           <FaUserAlt />
-          {contactName}
-        </p>
-        <p className={css.info}>
+          <p className={css.text}>{contactName}</p>
+        </div>
+        <div className={css.info}>
           <FaPhoneAlt />
           {contactNumber}
-        </p>
+        </div>
       </div>
       <button
         type="button"

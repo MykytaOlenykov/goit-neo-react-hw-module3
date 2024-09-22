@@ -23,6 +23,13 @@
   gap: 8px;
 }
 
+.text {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .button {
   padding: 4px 12px;
   color: #212121;
