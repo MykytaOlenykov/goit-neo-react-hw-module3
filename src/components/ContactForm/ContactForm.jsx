@@ -4,8 +4,12 @@ import PropTypes from "prop-types";
 import css from "./ContactForm.module.css";
 
 const schema = yup.object().shape({
-  name: yup.string().min(3).max(50).required(),
-  number: yup.string().min(3).max(50).required(),
+  name: yup.string().trim().min(3).max(50).required(),
+  number: yup
+    .string()
+    .trim()
+    .matches(/^\d{3}-\d{2}-\d{2}$/, "number format: xxx-xx-xx")
+    .required(),
 });
 
 const initialValues = {
@@ -14,8 +18,8 @@ const initialValues = {
 };
 
 export default function ContactForm({ onSubmit }) {
-  const handleSubmit = (values, { resetForm }) => {
-    onSubmit(values);
+  const handleSubmit = ({ name, number }, { resetForm }) => {
+    onSubmit({ name: name.trim(), number: number.trim() });
     resetForm();
   };
 
